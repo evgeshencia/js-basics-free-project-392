@@ -1,6 +1,6 @@
 import { generatePassword } from "./passwordGenerator.js";
 
-console.log(generatePassword(5));
-console.log(generatePassword(30));
-console.log(generatePassword(30, { useUppercase: false, useDigits: false }));
-console.log(generatePassword(70, { useSpecial: true }));
+console.log(generatePassword(8, 1));
+console.log(generatePassword(12, 123));
+console.log(generatePassword(12, 123, { useSpecial: true }));
+console.log(generatePassword(8, 1, { useUppercase: false, useDigits: false }));

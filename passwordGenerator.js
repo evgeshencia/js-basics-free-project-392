@@ -1,4 +1,5 @@
-const generatePassword = (length, options = {}) => {
+const nextRandom = (number) => (16807 * number) % 2147483647;
+const generatePassword = (length, seed, options = {}) => {
     const LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
     const UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const DIGITS = "0123456789";
@@ -16,8 +17,10 @@ const generatePassword = (length, options = {}) => {
     }
     let result = '';
     const poolLength = pool.length;
+    let currentSeed = seed;
     for (let i = 0; i<length; i +=1) {
-        const index = i % poolLength;
+        currentSeed = nextRandom(currentSeed);
+        const index = currentSeed % poolLength;
         result = `${result}${pool[index]}`;
     }
     return result;
