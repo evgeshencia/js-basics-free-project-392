@@ -69,6 +69,8 @@ const checkPassword = (password) => {
     } else if (score === 5) {
         verdict = 'Очень надёжный';
     }
-    
+
     return `${verdict} пароль (оценка ${score} из 5)`;
 };
+
+export { generatePassword }
