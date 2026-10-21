@@ -73,4 +73,4 @@ const checkPassword = (password) => {
     return `${verdict} пароль (оценка ${score} из 5)`;
 };
 
-export { generatePassword }
+export { generatePassword, checkPassword };
