@@ -1,5 +1,5 @@
 import { generatePassword, checkPassword } from "./passwordGenerator.js";
 
-console.log(generatePassword(5));
-console.log(generatePassword(30));
-console.log(generatePassword(30, { useUppercase: false, useDigits: false }));
+console.log(checkPassword(generatePassword(12, 123)));
+console.log(checkPassword(generatePassword(12, 123, { useSpecial: true })));
+console.log(checkPassword(generatePassword(8, 1, { useUppercase: false, useDigits: false })));
