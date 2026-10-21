@@ -46,28 +46,29 @@ const checkPassword = (password) => {
     if (chars.some((char) => LOWERCASE.includes(char))) {
         score += 1;
     }
+
     if (chars.some((char) => UPPERCASE.includes(char))) {
         score += 1;
     }
+
     if (chars.some((char) => DIGITS.includes(char))) {
         score += 1;
     }
+
     if (chars.some((char) => SPECIAL.includes(char))) {
         score += 1;
     }
 
+    let verdict = '';
     if (score <= 2) {
-        return 'Слабый';
+        verdict = 'Слабый';
+    } else if (score === 3) {
+        verdict = 'Средний';
+    } else if (score === 4) {
+        verdict = 'Надёжный';
+    } else if (score === 5) {
+        verdict = 'Очень надёжный';
     }
-    if (score === 3) {
-        return 'Средний';
-    }
-    if (score === 4) {
-        return 'Надёжный';
-    }
-    if (score === 5) {
-        return 'Очень надёжный';
-    }
-};
 
-export { generatePassword, checkPassword };
+    return `${verdict} пароль (оценка ${score} из 5)`;
+};
